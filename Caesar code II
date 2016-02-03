@@ -1,37 +1,4 @@
-{Zadanie CZ: Napište program na šifrování a dešifrování textu tzv. Césarovou šifrou. Na prvním řádku dostane program buď řetězec
-'sifrovat' nebo řetězec 'desifrovat', podle toho, zda bude program šifrovat nebo dešifrovat. Na druhém řádku bude klíč a na třetím bude
-samotný text k šifrování/dešifrování.
 
-Text je šifrován posunem písmenek v abecedě podle klíče. Klíč je slovo tvořené písmeny 'A' - 'Z', 'A' znamená posun o 1 písmeno,
-'B' znamená posun o 2 písmena, atd. až 'Z' znamená posun o 26 písmen. Posun je chápán cyklicky, čili po písmenu Z následuje opět 
-písmeno A. Pokud je text delší než klíč, tak se po dosažení konce klíče pokračuje opět od začátku klíče.
-
-Klíč je řetězec znaků tvořený pouze písmeny 'A' až 'Z' a vejde se do datového typu string.
-Text je řetězec libovolně dlouhý (nemusí se tedy vejít do stringu) a obsahuje pouze znaky 'A' - 'Z' a ' ' (mezera). Mezery ponechte 
-mezerami:-)
-
-Výstupem programu je právě jeden řádek se zašifrovaným/dešifrovaným textem.
-
-Příklad 1:
-Vstup:
-sifrovat
-AAB
-SIFRUJI SIFRU
-
-Výstup:
-TJHSVLJ TKGSW
-
-Příklad 2:
-Vstup:
-desifrovat
-AAB
-TJHSVLJ TKGSW
-
-Výstup:
-SIFRUJI SIFRU
-
-Poznámka: První dva testy jsou shodné se vzorovým vstupem, takže pokud vám program doma běží, ale CodEx říká, že máte špatnou odpověď,
-pak můžete mít chybu ve špatném formátu výstupu.}
 
 type sekvencia= array[1..255] of integer;
 var i,j,k: integer;
