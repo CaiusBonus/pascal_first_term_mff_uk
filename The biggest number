@@ -1,20 +1,3 @@
-{Zadanie CZ: V textovém souboru CISLA.TXT jsou uložena přirozená čísla. Každé z těchto čísel může mít až 100 dekadických cifer a je 
-zapsáno na samostatném řádku souboru. Zápis žádného čísla nezačíná vedoucími nulami. Čísla v souboru nejsou nijak uspořádána 
-a hodnoty se v souboru mohou libovolně opakovat. 
-
-Napište program, který určí největší číslo obsažené v souboru a počet jeho výskytů. Oba výsledky program vypíše na standardní výstup, 
-každý na samostatný řádek. 
-
-Příklad vstupního souboru CISLA.TXT: 
-5555555555555555555555555555
-7777777777777777777777777777
-55
-7777777777777777777777777777
-123123123
-
-Odpovídající správný výstup: 
-7777777777777777777777777777
-2  }
 
 program cislasz;
 
