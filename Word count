@@ -1,24 +1,4 @@
-{Zadanie CZ: Určete počet slov obsažených v textovém souboru vstup.txt. Výsledný počet slov vypište na standardní výstup. Řádky vstupního 
-souboru mají délku maximálně 200 znaků.
 
-Slovem rozumíme maximální souvislý úsek znaků různých od mezery umístěný na jednom řádku souboru. Každá dvě slova na řádku jsou oddělena
-alespoň jednou mezerou, mezi dvěma slovy ovšem může být i více mezer. Na začátku a na konci řádku mezera být nemusí, ale může 
-(může tam být i více mezer).
-
-Příklad:
-vstup.txt
-
-  Když jde     malý bobr 
-                              spát,
-
-  tak si 
-    chvíli 
-       hraje rád.
-  
-standardní výstup
-
-  10 }
-  
   var vstup: text;
     former,now:char;
     pocet: integer;
