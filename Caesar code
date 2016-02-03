@@ -1,19 +1,4 @@
-{Zadanie CZ:Napište program pro zašifrování a dešifrování textu pomocí Caesarovy šifry, což je jednoduchý typ substituční šifry. Základní
-princip: každé písmeno textu je nahrazeno písmenem o K znaků dále v abecedě, K je parametr (klíč, celé číslo, vejde se do integeru). Pokud
-by mělo dojít k náhradě písmenem za koncem abecedy, berou se písmena zase ze začátku (a obráceně). Dešifrování se provádí pomocí klíče
-s opačným znaménkem.
 
-Na vstupu je na prvním řádku jedno číslo, které udává posun v abecedě (může být i záporné) a jeden řádek textu. Na výstupu je "zašifrovaný"
-řádek textu. Při šifrování jsou malá písmena převedena na velká a nepísmenné znaky zůstávají bezeměny.
-
-Příklad:
-
-Vstup:
-3
-Hello world!
-
-Výstup:
-KHOOR ZRUOG!}
 
 var i,k : integer;
     text: string;
