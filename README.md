@@ -1,2 +1,2 @@
-# pascal_prvy_semester_mff_uk
-Moje domace ulohy
+# pascal_first_term_mff_uk
+My homeworks 
