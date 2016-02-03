@@ -1,0 +1,29 @@
+{Zadanie CZ: Věta je posloupnost písmen a mezer ukončená tečkou. Jednotlivá slova věty jsou oddělená alespoň jednou mezerou (znakem ' ').
+
+Napište program, který dostane na vstup větu a na výstup napíše, kolik obsahuje slov.
+
+Příklad:
+Vstup:
+Tato             veta ma  presne   sest           slov.
+
+Výstup:
+6  }
+
+var veta :array[0..1000] of char;
+    pocet,i,j : integer;
+
+begin
+i:=0 ;
+while veta[i] <> '.' do
+begin
+      inc(i);
+      read(veta[i]);
+end;
+for j:= 1 to i-1 do
+begin
+if (veta[j] <> ' ') and (veta[j+1] = ' ') then
+pocet:=pocet+1;
+end;
+if veta[i-1]<>' ' then inc(pocet);
+write(pocet);
+end.
