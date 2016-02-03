@@ -1,0 +1,33 @@
+{Zadanie CZ: Je dána posloupnost N celých čísel, N<=1000. Určete, kolik různých hodnot tato posloupnost obsahuje.
+
+Vstup: První řádek vstupu obsahuje počet prvků posloupnosti N (0 <= N <= 1000). Druhý řádek obsahuje N prvků posloupnosti oddělených
+mezerami.
+
+Výstup: Jeden řádek obsahující počet různých hodnot ve vstupní posloupnosti.
+
+Příklad:
+vstup:
+9
+4 6 1 6 9 9 6 1 2
+výstup:
+5   }
+
+var prvky:array[1..32767] of boolean;
+  pocet,vstup,i,pocetRoznych :integer;
+begin
+
+  readln(pocet);
+  for i:=1 to pocet do
+  begin
+    read(vstup);
+    if not prvky[vstup] then
+    begin
+      inc(pocetRoznych);
+      prvky[vstup]:=true;
+    end;
+  end;
+  writeln(pocetRoznych);
+  readln;
+
+end.
+
