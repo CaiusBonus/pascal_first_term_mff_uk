@@ -1,0 +1,62 @@
+{Zadanie CZ: Napíšte program, ktorý na vstupe prečíta postupnosť čísel (LONGINT) ukončených 0 a vypíše túto postupnosť dvakrát v opačnom poradi. 
+Při vypisování oddělujte čísla mezerou. 
+Príklad:
+vstup: 
+1 10 5 7 0
+
+výstup:
+7 5 10 1
+7 5 10 1
+}
+
+type Pcisiel= ^cislo;
+         cislo = record
+         hodnota: longint;
+         dalsie: Pcisiel;
+         end;
+
+var X: longint;
+    PrvyPrvok: Pcisiel;
+
+procedure Vytvorzoznam(X:longint; var PrvyPrvok: Pcisiel);
+var DalsiPrvok: Pcisiel;
+
+
+begin
+   new(DalsiPrvok);
+   DalsiPrvok^.hodnota := X;
+   DalsiPrvok^.dalsie := PrvyPrvok;
+  PrvyPrvok:= DalsiPrvok;
+end;
+
+procedure Vypiszoznam(PrvyPrvok: Pcisiel);
+var g : Pcisiel;
+begin
+  g:=PrvyPrvok;
+  while g <> nil do
+  begin
+    if g^.hodnota = 0 then
+    g:=g^.dalsie;
+    write(g^.hodnota,' ');
+    g:=g^.dalsie;
+
+  end;
+end;
+
+
+
+
+
+
+begin
+   X:=1;
+   PrvyPrvok:= nil;
+   while X<>0 do
+   begin
+     read(X);
+     Vytvorzoznam(X,PrvyPrvok);
+   end;
+   Vypiszoznam(PrvyPrvok);
+   writeln;
+   Vypiszoznam(PrvyPrvok);
+end.
