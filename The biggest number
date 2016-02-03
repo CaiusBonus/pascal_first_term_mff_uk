@@ -1,0 +1,125 @@
+{Zadanie CZ: V textovém souboru CISLA.TXT jsou uložena přirozená čísla. Každé z těchto čísel může mít až 100 dekadických cifer a je 
+zapsáno na samostatném řádku souboru. Zápis žádného čísla nezačíná vedoucími nulami. Čísla v souboru nejsou nijak uspořádána 
+a hodnoty se v souboru mohou libovolně opakovat. 
+
+Napište program, který určí největší číslo obsažené v souboru a počet jeho výskytů. Oba výsledky program vypíše na standardní výstup, 
+každý na samostatný řádek. 
+
+Příklad vstupního souboru CISLA.TXT: 
+5555555555555555555555555555
+7777777777777777777777777777
+55
+7777777777777777777777777777
+123123123
+
+Odpovídající správný výstup: 
+7777777777777777777777777777
+2  }
+
+program cislasz;
+
+type pzoznam=^zoznam;
+  zoznam=record
+               cislo:string[100];
+               pocetVyskytov:integer;
+               dalsi:pzoznam;
+  end;
+
+function porovnaj(x,y:string):string;
+var i:integer;
+begin
+  if length(x)>length(y) then
+  begin
+       porovnaj:='vacsi';
+       exit;
+  end
+  else if length(x)<length(y) then
+  begin
+       porovnaj:='mensi';
+       exit;
+  end
+  else
+  begin
+    for i:=1 to length(x) do
+    begin
+      if x[i]>y[i] then
+      begin
+           porovnaj:='vacsi';
+           exit;
+      end
+      else if x[i]<y[i] then
+      begin
+           porovnaj:='mensi';
+           exit;
+      end;
+    end;
+    porovnaj:='rovny';
+    exit;
+  end;
+end;
+
+procedure ulozOdZac(co:string;var kam:pzoznam);
+var pom,pred,hlava,Q:pzoznam;
+    vysledokPorovnania:string;
+begin
+  new(hlava);
+  pred:=hlava;
+  pred^.dalsi:=kam;
+  pom:=kam;
+  while true do
+  begin
+    if pom=nil then
+    begin
+         new(Q);
+         kam:=Q;
+         Q^.dalsi:=pom;
+         Q^.cislo:=co;
+         Q^.pocetVyskytov:=1;
+         break;
+    end;
+    vysledokPorovnania:=porovnaj(co,kam^.cislo);
+    if vysledokPorovnania='mensi' then
+    begin
+         new(Q);
+         pred^.dalsi:=Q;
+         Q^.dalsi:=pom;
+         Q^.cislo:=co;
+         Q^.pocetVyskytov:=1;
+         break;
+
+    end
+    else if vysledokPorovnania='vacsi' then
+    begin
+         pred:=pom;
+         pom:=pom^.dalsi;
+    end
+    else if vysledokPorovnania='rovny' then
+    begin
+         inc(pom^.pocetVyskytov);
+         break;
+    end;
+  end;
+  dispose(hlava);
+end;
+
+
+
+var f:text;
+cisla:pzoznam;
+temp:string[100];
+
+begin
+  assign(f,'CISLA.TXT');
+  reset(f);
+  cisla:=nil;
+  while not eof(f) do
+  begin
+    while eoln(f) do readln(f);
+    readln(f,temp);
+    ulozOdZac(temp,cisla);
+  end;
+  close(f);
+  writeln(cisla^.cislo);
+  writeln(cisla^.pocetVyskytov);
+  readln;
+end.
